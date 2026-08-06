@@ -1,11 +1,9 @@
 <template>
   <section id="guide" class="interview-process">
     <div class="ip-container">
-      <p class="ip-eyebrow">// the-interview-process</p>
-      <h2 class="ip-heading">Three interviews stand between<br />you and C2.</h2>
-      <p class="ip-subheading">
-        Each one tests something different — here's what to expect at every stage.
-      </p>
+      <p class="ip-eyebrow">{{ t('guide.tagline') }}</p>
+      <h2 class="ip-heading">{{ t('guide.title') }}</h2>
+      <p class="ip-subheading">{{ t('guide.subtitle') }}</p>
 
       <ol class="ip-timeline">
         <li
@@ -30,27 +28,28 @@
 </template>
 
 <script setup>
+import { useI18n } from '#imports'
+
+const { t, locale } = useI18n()
+
 const steps = [
   {
     number: '01',
-    title: 'Technical Interview',
-    description:
-      "You'll walk through core programming fundamentals and problem-solving out loud. Interviewers care more about how you reason through a problem than whether you get it perfectly right the first time.",
     icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
+    get title() { return t('guide.steps[0].title') },
+    get description() { return t('guide.steps[0].description') }
   },
   {
     number: '02',
-    title: 'Motivation Interview',
-    description:
-      "A conversation about why you're here. Expect questions about your goals, what drew you to tech, and how you plan to handle the intensity of a bootcamp schedule.",
     icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>`,
+    get title() { return t('guide.steps[1].title') },
+    get description() { return t('guide.steps[1].description') }
   },
   {
     number: '03',
-    title: 'Teamwork Interview',
-    description:
-      'A short group exercise with other applicants. This stage looks at how you communicate, listen, and contribute when working toward a shared goal.',
     icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+    get title() { return t('guide.steps[2].title') },
+    get description() { return t('guide.steps[2].description') }
   },
 ]
 </script>

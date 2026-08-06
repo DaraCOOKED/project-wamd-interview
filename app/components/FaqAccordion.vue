@@ -1,11 +1,11 @@
 <template>
-  <section class="faq-section">
-    <p class="faq-eyebrow">// faqs</p>
-    <h2 class="faq-title">Frequently Asked Questions</h2>
+  <section id="faqs" class="faq-section">
+    <p class="faq-eyebrow">{{ t('faqs.tagline') }}</p>
+    <h2 class="faq-title">{{ t('faqs.title') }}</h2>
 
     <div class="faq-list">
       <div
-        v-for="(item, index) in faqs"
+        v-for="(item, index) in resolvedFaqs"
         :key="index"
         class="faq-item"
       >
@@ -30,39 +30,41 @@
   </section>
 </template>
 
-<script setup>
-import { ref } from 'vue'
+<script>
+import { defineComponent } from 'vue'
 
-// Pass your own list via props if you want, this is just default content
+export default defineComponent({
+  props: {
+    faqs: {
+      type: Array,
+      default: () => []
+    }
+  }
+})
+</script>
+
+<script setup>
+import { ref, computed } from 'vue'
+import { useI18n } from '#imports'
+
+const { t, tm, rt } = useI18n()
+
 const props = defineProps({
   faqs: {
     type: Array,
-    default: () => [
-      {
-        question: 'How long does each interview take?',
-        answer: 'Each interview typically takes around 30–45 minutes, depending on the role and stage.'
-      },
-      {
-        question: 'Can I use notes during the technical interview?',
-        answer: 'Yes, you can refer to short notes, but you should be ready to explain your thinking out loud.'
-      },
-      {
-        question: "What happens if I don't pass on my first attempt?",
-        answer: 'You can request feedback and reapply after the cooldown period specified in the guide.'
-      },
-      {
-        question: 'What should I bring?',
-        answer: 'Bring a valid ID, a printed or digital copy of your resume, and a notebook if you prefer taking notes.'
-      },
-      {
-        question: 'How soon will I hear back after my interview?',
-        answer: 'Results are usually shared within 3–5 business days via email.'
-      }
-    ]
+    default: () => []
   }
 })
 
 const openIndex = ref(null)
+
+const resolvedFaqs = computed(() => {
+  const items = tm('faqs.items')
+  return items.map(item => ({
+    question: rt(item.question),
+    answer: rt(item.answer)
+  }))
+})
 
 function toggle(index) {
   openIndex.value = openIndex.value === index ? null : index

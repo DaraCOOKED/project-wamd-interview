@@ -1,21 +1,21 @@
 <template>
-  <section class="bg-white py-8 sm:py-12 lg:py-16">
+  <section id="questions" class="bg-white py-8 sm:py-12 lg:py-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Category Tagline -->
       <div class="flex items-center gap-2 font-mono text-xs sm:text-sm font-medium text-blue-600 mb-3 sm:mb-4">
         <span>//</span>
-        <span>sample-questions</span>
+        <span>{{ t('questions.tagline') }}</span>
       </div>
 
       <!-- Heading -->
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-3 sm:mb-4">
-        Sample Questions
+        {{ t('questions.title') }}
       </h1>
 
       <!-- Description -->
       <p class="text-slate-500 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 max-w-xl">
-        Tap a category to see the kind of questions that tend to come up. These are a starting point, not a script.
+        {{ t('questions.subtitle') }}
       </p>
 
       <!-- Category List -->
@@ -35,7 +35,7 @@
                 {{ cat.name }}
               </span>
               <span class="font-mono text-xs sm:text-sm text-slate-400 whitespace-nowrap">
-                {{ cat.questions.length }} questions
+                {{ cat.questions.length }} {{ t('questions.question_count') }}
               </span>
             </span>
             <svg
@@ -70,7 +70,7 @@
                   type="button"
                   @click="closePopup"
                   class="text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-lg p-1.5 transition-all duration-200 hover:rotate-90 active:scale-95"
-                  aria-label="Close"
+                  :aria-label="t('closeMenu')"
                 >
                   <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -107,42 +107,27 @@
 
 <script setup>
 import { ref, computed, watch } from 'vue'
+import { useI18n } from '#imports'
+
+const { t } = useI18n()
 
 const openKey = ref(null)
 
 const categories = [
   {
     key: 'technical',
-    name: 'Technical',
-    questions: [
-      "Walk me through a project you're most proud of — what was your specific role?",
-      'How do you approach debugging a problem you\'ve never seen before?',
-      'Tell me about a time you had to learn a new tool or technology quickly.',
-      'How do you decide between a quick fix and a more thorough solution?',
-      "What's a technical decision you'd make differently if you could redo it?",
-    ],
+    get name() { return t('questions.categories.technical.name') },
+    get questions() { return t('questions.categories.technical.questions') },
   },
   {
     key: 'motivation',
-    name: 'Motivation',
-    questions: [
-      'What drew you to apply for this role specifically?',
-      'Where do you want to be in your career three years from now?',
-      'What kind of work makes you lose track of time?',
-      "What's something you learned recently just because you were curious?",
-      'What would make this the right next step for you?',
-    ],
+    get name() { return t('questions.categories.motivation.name') },
+    get questions() { return t('questions.categories.motivation.questions') },
   },
   {
     key: 'teamwork',
-    name: 'Teamwork',
-    questions: [
-      'Tell me about a time you disagreed with a teammate — how did you handle it?',
-      'Describe a project where you had to rely heavily on other people.',
-      'How do you like to give and receive feedback?',
-      'Tell me about a time you had to pick up slack for someone else.',
-      'How do you approach working with someone whose style is very different from yours?',
-    ],
+    get name() { return t('questions.categories.teamwork.name') },
+    get questions() { return t('questions.categories.teamwork.questions') },
   },
 ]
 
