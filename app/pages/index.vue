@@ -1,6 +1,8 @@
 <template>
   <Hero />
  
+  <Questions />
+  <Tips />
   <Guide />
    <Tips />
   <FaqAccordion :faqs="[
@@ -17,6 +19,7 @@
 <script setup>
 import FaqAccordion from '~/components/FaqAccordion.vue'
 import Hero from '~/components/Hero.vue'
+import Questions from '~/components/Questions.vue';
 import Tips from '~/components/Tips.vue'
 import Guide from '~/components/Guide.vue'   
 </script> 
