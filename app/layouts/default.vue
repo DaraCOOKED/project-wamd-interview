@@ -25,8 +25,8 @@
             <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
           <!-- VS Code close icon (open state) -->
-          <svg v-else class="w-6 h-6" :class="{ 'text-white': !headerScrolled, 'text-[#0A192F]': headerScrolled }" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M23.91 6.58L18.18.53a1.18 1.18 0 0 0-1.68.22L11 8.27 4.74 3.32a1.17 1.17 0 0 0-1.57.11L.22 6.54a1.18 1.18 0 0 0 0 1.68l4 3.78-4 3.78a1.18 1.18 0 0 0 0 1.68l2.95 3.11a1.18 1.18 0 0 0 1.57.11L11 15.73l5.5 7.52a1.18 1.18 0 0 0 1.68.22l5.73-6.05a1.18 1.18 0 0 0 0-1.68L18 12l5.91-3.74a1.18 1.18 0 0 0 0-1.68zM16.5 12L11 8.27v7.46zm-9 0L4 9.63l1.83-1.4 1.67 1.32zm9 5.86l-2-2.73 2-1.37zm0-11.72v4.1l-2-1.37z"/>
+          <svg v-else class="w-6 h-6 text-[#0A192F]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
       </div>
@@ -108,5 +108,14 @@ onUnmounted(() => {
     .site-header {
       transition-duration: 0.001ms !important;
     }
+  }
+
+  .mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .mobile-menu.is-open {
+    max-height: 320px;
   }
 </style>
