@@ -1,5 +1,6 @@
 <template>
   <Hero />
+  <Tips />
   <Guide />
   <FaqAccordion :faqs="[
   { question: 'How long does each interview take?', answer: 'ot mean data te' },
@@ -15,5 +16,6 @@
 <script setup>
 import FaqAccordion from '~/components/FaqAccordion.vue'
 import Hero from '~/components/Hero.vue'
+import Tips from '~/components/Tips.vue'
 import Guide from '~/components/Guide.vue'   
 </script> 
