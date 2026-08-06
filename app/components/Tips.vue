@@ -1,6 +1,6 @@
 <template>
   <section id="tips" class="bg-[#f0f4f8] py-16 px-6 md:px-12 lg:px-24 scroll-mt-10">
-    <div class="max-w-7xl mx-auto">
+    <div class="w-full max-w-[1120px] mx-auto">
       
       <!-- Header -->
       <div class="mb-12">
