@@ -1,7 +1,8 @@
 <template>
   <Hero />
-  <Tips />
+ 
   <Guide />
+   <Tips />
   <FaqAccordion :faqs="[
   { question: 'How long does each interview take?', answer: 'ot mean data te' },
   { question: 'Can I use notes?', answer: 'bro som alok' },
