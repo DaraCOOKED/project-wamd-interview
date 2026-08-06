@@ -21,11 +21,11 @@
           :aria-label="menuOpen ? 'Close menu' : 'Open menu'"
         >
           <!-- Hamburger icon (closed state) -->
-          <svg v-if="!menuOpen" class="w-6 h-6" :class="{ 'text-white': !headerScrolled, 'text-[#0A192F]': headerScrolled }" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <svg v-if="!menuOpen" class="w-7 h-7" :class="{ 'text-white': !headerScrolled, 'text-[#0A192F]': headerScrolled }" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
           <!-- VS Code close icon (open state) -->
-          <svg v-else class="w-6 h-6 text-[#0A192F]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <svg v-else class="w-7 h-7 text-[#0A192F]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
