@@ -1,19 +1,28 @@
 <template>
   <Hero />
   <Guide />
-  <FaqAccordion :faqs="[
-  { question: 'How long does each interview take?', answer: 'ot mean data te' },
-  { question: 'Can I use notes?', answer: 'bro som alok' },
-  { question: 'What happens if I don\'t pass on my first attempt?', answer: '...' },
-  { question: 'What should I bring?', answer: '...' },
-  { question: 'How soon will I hear back after my interview?', answer: '...' }
-]" />
+  <Questions />
+  <Tips />
+  <FaqAccordion />
+  
+   
+ 
   
 </template>
 
 
 <script setup>
-import FaqAccordion from '~/components/FaqAccordion.vue'
-import Hero from '~/components/Hero.vue'
-import Guide from '~/components/Guide.vue'   
+  import FaqAccordion from '~/components/FaqAccordion.vue'
+  import Hero from '~/components/Hero.vue'
+  import Questions from '~/components/Questions.vue';
+  import Tips from '~/components/Tips.vue'
+  import Guide from '~/components/Guide.vue'   
 </script> 
+
+<style scoped >
+
+html {
+  scroll-behavior: smooth;
+}
+  /* Add any page-specific styles here */
+</style>

@@ -1,7 +1,7 @@
 <template>
   <section
     ref="heroRef"
-    class="relative overflow-hidden bg-[#0A192F] text-white min-h-screen pt-[calc(62px+40px)] pb-20 -mt-[62px]"
+    class="relative overflow-hidden  bg-[#0A192F] min-h-screen pt-[calc(62px+40px)] pb-20 -mt-[62px]"
     id="top"
   >
     <!-- Glows -->
@@ -26,30 +26,35 @@
       class="absolute bottom-[10%] left-[16%] font-mono font-semibold leading-none text-white/7 text-6xl pointer-events-none select-none will-change-transform"
       :style="{ transform: `translateY(${offsets['glyph-2']}px)` }"
       aria-hidden="true"
-    >&lt;/&gt;</span>
+    ></span>
     <span
       class="absolute top-[26%] right-[7%] font-mono font-semibold leading-none text-white/7 text-9xl pointer-events-none select-none will-change-transform"
       :style="{ transform: `translateY(${offsets['glyph-3']}px)` }"
       aria-hidden="true"
     >;</span>
 
-    <div class="relative z-10 max-w-[1120px] mx-auto px-6 grid grid-cols-1 gap-13 items-center lg:grid-cols-[1.05fr_1fr]">
+    <div class="relative z-10 max-w-[1120px] mt-20 mx-auto px-6 grid grid-cols-1 gap-13 items-center lg:grid-cols-[1.05fr_1fr]">
       <!-- Left column -->
       <div class="text-center lg:text-left">
-        <div class="inline-flex items-center gap-1.5 font-mono text-xs text-[#9DBBFF] bg-blue-500/25 border border-blue-500/45 px-4 py-2 rounded-full mb-7">
-          <span>class --cohort=C2 --status=applicant</span>
+        <div class="inline-flex items-center gap-1.5 font-mono text-xs px-4 py-2 rounded-full mb-7"
+             :class="isScrolled 
+               ? 'text-[#175CFF] bg-blue-500/15 border-blue-500/45' 
+               : 'text-[#9DBBFF] bg-blue-500/25 border-blue-500/45'">
+          <span>{{ t('hero.tagline') }}</span>
         </div>
-        <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight mb-5">
-          Crush Your WMAD Interview<span class="text-[#FF7A00]">.</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight mb-5"
+            :class="isScrolled ? 'text-[#0A192F]' : 'text-white'">
+          {{ t('hero.title') }}<span class="text-[#FF7A00]">.</span>
         </h1>
-        <p class="text-[#B8C1D1] text-lg max-w-xl mx-auto lg:mx-0 mb-9">
-          Everything you need to know to prepare, practice, and succeed as a C2 applicant.
+        <p class="text-lg max-w-xl mx-auto lg:mx-0 mb-9"
+           :class="isScrolled ? 'text-[#0A192F]' : 'text-[#B8C1D1]'">
+          {{ t('hero.subtitle') }}
         </p>
         <a
           href="#guide"
           class="inline-block bg-[#FF7A00] text-white font-semibold text-base px-8 py-4 rounded-lg shadow-[0_10px_24px_rgba(255,122,0,0.28),inset_0_1px_0_rgba(255,255,255,0.25)] transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(255,122,0,0.36),inset_0_1px_0_rgba(255,255,255,0.3)]"
         >
-          Start Preparing
+          {{ t('hero.cta') }}
         </a>
       </div>
 
@@ -62,14 +67,14 @@
             <span class="w-[11px] h-[11px] rounded-full bg-[#28C840]"></span>
             <span class="ml-2 font-mono text-xs text-[#8492A6]">applicant.js</span>
           </div>
-          <pre class="m-0 p-5 pb-6 font-mono text-[0.85rem] leading-[1.9] text-[#C5D1E8] overflow-x-auto"><code><span class="text-[#5C7599]">// you, in six months</span>
-<span class="text-[#7AA2FF]">const</span> applicant = {
-  cohort: <span class="text-[#FFA25E]">"C2"</span>,
-  status: <span class="text-[#FFA25E]">"preparing"</span>,
-  ready:  <span class="text-[#5FE3A1]">true</span>
+          <pre class="m-0 p-5 pb-6 font-mono text-[0.85rem] leading-[1.9] text-[#C5D1E8] overflow-x-auto"><code><span class="text-[#5C7599]">{{ t('hero.code_comment') }}</span>
+<span class="text-[#7AA2FF]">{{ t('hero.code_const') }}</span>
+  <span class="text-[#FFA25E]">{{ t('hero.code_cohort') }}</span>,
+  <span class="text-[#FFA25E]">{{ t('hero.code_status') }}</span>,
+  <span class="text-[#5FE3A1]">{{ t('hero.code_ready') }}</span>
 };
 
-<span class="text-[#7AA2FF]">prepare</span>(applicant)<span class="text-[#FF7A00] animate-blink">|</span></code></pre>
+<span class="text-[#7AA2FF]">{{ t('hero.code_prepare') }}</span>(applicant)<span class="text-[#FF7A00] animate-blink">|</span></code></pre>
         </div>
       </div>
     </div>
@@ -78,6 +83,15 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { useI18n } from '#imports'
+
+const { t } = useI18n()
+
+const props = defineProps({
+  isScrolled: { type: Boolean, default: false }
+})
+
+const isScrolled = props.isScrolled
 
 const heroRef = ref(null)
 const offsets = ref({
