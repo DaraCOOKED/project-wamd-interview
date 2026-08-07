@@ -54,6 +54,9 @@
           v-if="openKey"
           class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-md p-4 sm:p-6"
           @click.self="closePopup"
+          @keydown.escape.window="closePopup"
+          role="dialog"
+          aria-modal="true"
         >
           <transition name="pop" appear>
             <div
@@ -106,33 +109,42 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onUnmounted } from 'vue'
 import { useI18n } from '#imports'
 
-const { t } = useI18n()
+// Destructure tm alongside t
+const { t, tm, rt } = useI18n()
 
 const openKey = ref(null)
 
-const categories = [
+// Helper to safely parse array messages from vue-i18n
+const getQuestions = (path) => {
+  const res = tm(path)
+  if (!Array.isArray(res)) return []
+  // rt() handles translating AST nodes if escapeParameter is active
+  return res.map((item) => (typeof rt === 'function' ? rt(item) : item))
+}
+
+const categories = computed(() => [
   {
     key: 'technical',
-    get name() { return t('questions.categories.technical.name') },
-    get questions() { return t('questions.categories.technical.questions') },
+    name: t('questions.categories.technical.name'),
+    questions: getQuestions('questions.categories.technical.questions'),
   },
   {
     key: 'motivation',
-    get name() { return t('questions.categories.motivation.name') },
-    get questions() { return t('questions.categories.motivation.questions') },
+    name: t('questions.categories.motivation.name'),
+    questions: getQuestions('questions.categories.motivation.questions'),
   },
   {
     key: 'teamwork',
-    get name() { return t('questions.categories.teamwork.name') },
-    get questions() { return t('questions.categories.teamwork.questions') },
+    name: t('questions.categories.teamwork.name'),
+    questions: getQuestions('questions.categories.teamwork.questions'),
   },
-]
+])
 
 const activeCategory = computed(() =>
-  categories.find((c) => c.key === openKey.value) || null
+  categories.value.find((c) => c.key === openKey.value) || null
 )
 
 function openPopup(key) {
@@ -146,6 +158,12 @@ function closePopup() {
 watch(openKey, (val) => {
   if (typeof window !== 'undefined') {
     document.body.style.overflow = val ? 'hidden' : ''
+  }
+})
+
+onUnmounted(() => {
+  if (typeof window !== 'undefined') {
+    document.body.style.overflow = ''
   }
 })
 </script>
