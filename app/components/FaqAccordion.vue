@@ -30,19 +30,6 @@
   </section>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  props: {
-    faqs: {
-      type: Array,
-      default: () => []
-    }
-  }
-})
-</script>
-
 <script setup>
 import { ref, computed } from 'vue'
 import { useI18n } from '#imports'
@@ -59,6 +46,11 @@ const props = defineProps({
 const openIndex = ref(null)
 
 const resolvedFaqs = computed(() => {
+  if (props.faqs.length > 0) {
+    return props.faqs
+  }
+  // tm() pulls the raw array of message objects from faqs.items
+  // rt() resolves each nested message so it's actually translated
   const items = tm('faqs.items')
   return items.map(item => ({
     question: rt(item.question),
