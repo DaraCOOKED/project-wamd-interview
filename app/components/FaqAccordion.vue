@@ -1,9 +1,9 @@
 <template>
-  <section id="faqs" class="faq-section">
+  <section id="faqs" class="faq-section px-4 py-10 sm:px-6 md:px-8 md:py-20">
     <p class="faq-eyebrow">{{ t('faqs.tagline') }}</p>
     <h2 class="faq-title">{{ t('faqs.title') }}</h2>
 
-    <div class="faq-list">
+    <div class="faq-list max-w-6xl mx-auto w-full">
       <div
         v-for="(item, index) in resolvedFaqs"
         :key="index"
