@@ -6,19 +6,21 @@
     "faqs": "FAQs"
   },
   
+  
   "hero": {
-    "tagline": "class --cohort=C2 --status=applicant",
-    "title": "Crush Your WMAD Interview.",
-    "subtitle": "Everything you need to know to prepare, practice, and succeed as a C2 applicant.",
+    "tagline": "class --cohort=WMAD --status=interviewing",
+    "title": "Welcome, Future WMAD Student",
+    "subtitle": "Your first step toward becoming a web and mobile developer starts here. Learn, practice, and walk into your interview with confidence.",
     "cta": "Start Preparing",
     "code_comment": "// you, in six months",
-    "code_const": "const applicant = {",
-    "code_cohort": "  cohort: \"C2\",",
-    "code_status": "  status: \"preparing\",",
-    "code_ready": "  ready:  true",
-    "code_close": ";",
+    "code_const": "const applicant = \\u007B",
+    "code_cohort": "  cohort: \"WMAD\",",
+    "code_status": "  status: \"interviewing\",",
+    "code_ready": "  ready: true",
+    "code_close": "\\u007D;",
     "code_prepare": "prepare(applicant)"
   },
+
   "guide": {
     "menu": "Guide",
     "tagline": "// the-interview-process",
@@ -112,20 +114,16 @@
     "title": "Frequently Asked Questions",
     "items": [
       {
-        "question": "How long does each interview take?",
-        "answer": "Each interview is short and focused — plan for roughly 15–20 minutes per stage. Check your invitation email for the exact schedule."
+        "question": "How long does the interview take?",
+        "answer": "The interview is take 3hours for three step interview."
       },
       {
-        "question": "Can I use notes during the technical interview?",
-        "answer": "You're welcome to think out loud and sketch things out. It's not closed-book — interviewers are more interested in your reasoning than a memorized answer."
-      },
-      {
-        "question": "What happens if I don't pass on my first attempt?",
-        "answer": "Not passing one stage doesn't mean the door is closed. Reach out to the admissions team for guidance on next steps and future intakes."
+        "question": "What happens if I don't pass on my first interview?",
+        "answer": "You can choose another skill that is your second skill or maybe try again in the next year."
       },
       {
         "question": "What should I bring?",
-        "answer": "A laptop if you have one, a notebook, and a few questions of your own for the interviewers. Comfortable, presentable clothing is fine — no dress code pressure."
+        "answer": "Should bring your confident and your skill "
       },
       {
         "question": "How soon will I hear back after my interview?",

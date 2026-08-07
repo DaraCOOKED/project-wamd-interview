@@ -38,7 +38,7 @@
         <a href="#tips" class="block px-6 py-4 font-medium text-[#0A192F]" @click="menuOpen = false">{{ t('menu.tips') }}</a>
         <a href="#faqs" class="block px-6 py-4 font-medium text-[#0A192F]" @click="menuOpen = false">{{ t('menu.faqs') }}</a>
         <div class="px-6 pb-4">
-          <LanguageSwitcher :is-scrolled="headerScrolled" />
+          <LanguageSwitcher :is-scrolled="headerScrolled" :is-mobile="true" />
         </div>
       </nav>
     </header>
