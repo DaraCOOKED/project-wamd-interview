@@ -80,30 +80,31 @@
     },
     "question_count": "questions"
   },
+  
   "tips": {
     "tagline": "// tips-from-c1",
-    "title": "Tips from students who've been there",
-    "subtitle": "Swipe through advice from applicants who made it through C1.",
+    "title": "Tips from Students",
+    "subtitle": "Read tips from students who passed the exam.",
     "cards": [
       {
-        "quote": "Don't be afraid to say \"I don't know.\" Showing how you think matters more than having the perfect answer.",
-        "author": "— C1 Graduate"
+        "quote": "Don't be afraid if you don't know the answer. Show that you can think and try your best.",
+        "author": "— C3 Student"
       },
       {
-        "quote": "Practice explaining your projects out loud, not just building them. It's a completely different skill.",
-        "author": "— C1 Graduate"
+        "quote": "fake it's until you make it. Show your reasoning and how you work through problems, not just the answer.",
+        "author": "— C3 Student"
       },
       {
-        "quote": "The teamwork interview isn't a test of being right — it's a test of how well you listen.",
-        "author": "— C1 Graduate"
+        "quote": "Work well with your team. Listen and help each other.",
+        "author": "— C3 Student"
       },
       {
-        "quote": "Sleep well the night before. A clear head beats one more hour of cramming.",
-        "author": "— C1 Graduate"
+        "quote": "Sleep well before the exam. It helps you think better.",
+        "author": "— C3 Student"
       },
       {
-        "quote": "Ask questions back. Interviewers remember applicants who show real curiosity.",
-        "author": "— C1 Graduate"
+        "quote": "Don't be shy to ask questions. It shows you want to learn.",
+        "author": "— C3 Student"
       }
     ]
   },
