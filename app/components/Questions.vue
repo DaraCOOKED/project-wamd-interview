@@ -9,9 +9,9 @@
       </div>
 
       <!-- Heading -->
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-3 sm:mb-4">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-3 sm:mb-4">
         {{ t('questions.title') }}
-      </h1>
+      </h2>
 
       <!-- Description -->
       <p class="text-slate-500 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 max-w-xl">
@@ -31,7 +31,7 @@
             class="w-full flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 text-left gap-4 group"
           >
             <span class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3 min-w-0">
-              <span class="text-base sm:text-lg font-bold text-blue-600 truncate group-hover:text-blue-700 transition-colors">
+              <span class="text-base sm:text-lg truncate group-hover:text-blue-700 transition-colors" style="color: #3d5afe;">
                 {{ cat.name }}
               </span>
               <span class="font-mono text-xs sm:text-sm text-slate-400 whitespace-nowrap">
@@ -67,7 +67,7 @@
               <div class="flex items-center justify-between border-b border-slate-100 px-5 sm:px-6 py-4 sm:py-5 flex-shrink-0 bg-slate-50/50">
                 <div class="flex items-center gap-2.5 truncate pr-2">
                   <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
-                  <h2 class="text-lg sm:text-xl font-bold text-blue-600 truncate">{{ activeCategory?.name }}</h2>
+                  <h2 class="text-lg sm:text-xl truncate" style="color:#3d5afe">{{ activeCategory?.name }}</h2>
                 </div>
                 <button
                   type="button"
@@ -93,7 +93,7 @@
                   :style="{ animationDelay: `${i * 60 + 100}ms` }"
                   class="stagger-item group/item flex gap-3.5 text-sm sm:text-base text-slate-600 leading-relaxed p-3 rounded-xl hover:bg-blue-50/60 transition-all duration-200 hover:translate-x-1.5 hover:text-slate-900"
                 >
-                  <span class="font-mono text-xs sm:text-sm text-blue-500 font-semibold mt-0.5 flex-shrink-0 group-hover/item:scale-110 transition-transform">
+                  <span class="font-mono text-xs sm:text-sm ont-semibold mt-0.5 flex-shrink-0 group-hover/item:scale-110 transition-transform" style="color: #3d5afe;">
                     {{ String(i + 1).padStart(2, '0') }}
                   </span>
                   <span>{{ q }}</span>
